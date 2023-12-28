@@ -37,7 +37,7 @@ resource "aws_lb_listener" "listerner_443" {
 }
 
 resource "aws_lb_target_group" "target_group_P-5001" {
-  name        = "alb-target-group-${var.env}"
+  name        = "alb-target-group-${var.env}-443"
   port        = 5000
   protocol    = "HTTPS"
   target_type = "ip"
