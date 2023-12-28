@@ -13,7 +13,7 @@ class Item(BaseModel):
 
 @app.get("/")
 def read_root():
-    return {"Hello World!": "Merry Christmas to everyone and a happy new year!!!"}
+    return {"Hello World!": "Merry Christmas and a happy new year to everyone!!!"}
 
 
 @app.get("/items/{item_id}")
