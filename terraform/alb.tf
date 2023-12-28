@@ -29,6 +29,8 @@ resource "aws_lb_listener" "listerner_443" {
   load_balancer_arn = aws_lb.alb.arn
   port              = "443"
   protocol          = "HTTPS"
+  ssl_policy        = "ELBSecurityPolicy-2016-08"
+  certificate_arn = "arn:aws:acm:us-east-1:806066816337:certificate/3848def8-0982-4f7e-b2be-664c6d00d101"
 
   default_action {
     type             = "forward"
@@ -42,9 +44,4 @@ resource "aws_lb_target_group" "target_group_P-5001" {
   protocol    = "HTTPS"
   target_type = "ip"
   vpc_id      = var.vpc_id
-}
-
-resource "aws_lb_listener_certificate" "example" {
-  listener_arn    = aws_lb_listener.listerner_443.arn
-  certificate_arn = "arn:aws:acm:us-east-1:806066816337:certificate/3848def8-0982-4f7e-b2be-664c6d00d101"
 }
