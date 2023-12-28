@@ -59,7 +59,7 @@ resource "aws_ecs_service" "fastapi-service" {
     container_port   = 5000
   }
 
-  
+
 
 }
 

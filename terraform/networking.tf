@@ -11,7 +11,7 @@ resource "aws_security_group" "internet_to_ALB" {
     ipv6_cidr_blocks = ["::/0"]
   }
 
-   ingress {
+  ingress {
     description      = "Inbound from Internet to ALB"
     from_port        = 443
     to_port          = 443
