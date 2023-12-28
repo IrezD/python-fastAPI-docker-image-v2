@@ -3,7 +3,7 @@ resource "aws_lb" "alb" {
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.internet_to_ALB]
-  subnets = var.subnets_for_ecs
+  subnets            = var.subnets_for_ecs
 }
 
 resource "aws_lb_listener" "front_end" {
