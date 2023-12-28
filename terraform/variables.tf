@@ -44,6 +44,6 @@ variable "fqdn" {
 }
 
 variable "hosted_zone_id" {
-
+  description = "Hosted zone ID for Route53"
 }
 

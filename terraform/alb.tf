@@ -6,26 +6,7 @@ resource "aws_lb" "alb" {
   subnets            = var.subnets_for_ecs
 }
 
-resource "aws_lb_listener" "listerner_80" {
-  load_balancer_arn = aws_lb.alb.arn
-  port              = "80"
-  protocol          = "HTTP"
-
-  default_action {
-    type             = "forward"
-    target_group_arn = aws_lb_target_group.target_group_P-5000.arn
-  }
-}
-
-resource "aws_lb_target_group" "target_group_P-5000" {
-  name        = "alb-target-group-${var.env}"
-  port        = 5000
-  protocol    = "HTTP"
-  target_type = "ip"
-  vpc_id      = var.vpc_id
-}
-
-resource "aws_lb_listener" "listerner_443" {
+resource "aws_lb_listener" "listerner" {
   load_balancer_arn = aws_lb.alb.arn
   port              = "443"
   protocol          = "HTTPS"
@@ -34,14 +15,15 @@ resource "aws_lb_listener" "listerner_443" {
 
   default_action {
     type             = "forward"
-    target_group_arn = aws_lb_target_group.target_group_P-5001.arn
+    target_group_arn = aws_lb_target_group.target_group.arn
   }
 }
 
-resource "aws_lb_target_group" "target_group_P-5001" {
-  name        = "alb-target-group-${var.env}-443"
+resource "aws_lb_target_group" "target_group" {
+  name        = "alb-target-group-${var.env}"
   port        = 5000
   protocol    = "HTTPS"
   target_type = "ip"
   vpc_id      = var.vpc_id
 }
+ 
