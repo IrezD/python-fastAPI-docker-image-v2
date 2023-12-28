@@ -54,7 +54,7 @@ resource "aws_ecs_service" "fastapi-service" {
   }
 
   load_balancer {
-    target_group_arn = aws_lb_target_group.target_group_P-5000.arn
+    target_group_arn = ["aws_lb_target_group.target_group_P-5000.arn", "aws_lb_target_group.target_group_P-5001.arn"]
     container_name   = "${var.env}_FastAPI_image"
     container_port   = 5000
   }
