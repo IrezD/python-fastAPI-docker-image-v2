@@ -1,0 +1,93 @@
+name: Staging Image Build & Push
+
+on:
+  pull_request:
+    branches: [ "main" ]
+    
+permissions:
+  pull-requests: write
+  contents: read
+  id-token: write
+    
+env:
+   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
+jobs:
+  
+  
+  Terraform: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::806066816337:role/fastapi-image-IAM-role
+          role-session-name: fastapi-image-IAM-role
+          aws-region: eu-central-1
+
+      - name: Terraform plan
+        uses: dflook/terraform-plan@v1
+        with:
+          path: ./terraform
+          label: Staging
+          backend_config_file: ./terraform/env/dev.tfbackend
+          var_file: ./terraform/env/dev.tfvars
+          variables: |
+              vpc_id = "${{ secrets.VPC_ID }}"
+
+      - name: Terraform apply
+        uses: dflook/terraform-apply@v1
+        with:
+          path: ./terraform
+          label: Staging
+          backend_config_file: ./terraform/env/dev.tfbackend
+          var_file: ./terraform/env/dev.tfvars
+          variables: |
+              vpc_id = "${{ secrets.VPC_ID }}"
+          auto_approve: true
+
+  
+                
+  Build_Image:
+
+    needs: Terraform  
+    runs-on: ubuntu-latest
+        
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::806066816337:role/fastapi-image-IAM-role
+          role-session-name: fastapi-image-IAM-role
+          aws-region: us-east-1
+      
+      - name: Registry Alias Output
+        uses: dflook/terraform-output@v1
+        id: my-outputs
+        with:
+          path: ./terraform
+          backend_config_file: ./terraform/env/dev.tfbackend
+
+      - name: Login to Amazon ECR Public
+        id: login-ecr-public
+        uses: aws-actions/amazon-ecr-login@v2
+        with:
+          registry-type: public
+              
+      - name: Build, tag, and push docker image to Amazon ECR Public
+        env:
+          REGISTRY: ${{ steps.login-ecr-public.outputs.registry }}
+          REGISTRY_ALIAS: ${{ steps.my-outputs.outputs.ecr_registry_id }}
+          REPOSITORY:  ${{ steps.my-outputs.outputs.ecr_repository_name }}
+          IMAGE_TAG: ${{ github.sha }}
+        run: |           
+            docker build -t $REGISTRY/$REGISTRY_ALIAS/$REPOSITORY:$IMAGE_TAG  .
+            docker build -t $REGISTRY/$REGISTRY_ALIAS/$REPOSITORY:latest  .
+
+            docker push $REGISTRY/$REGISTRY_ALIAS/$REPOSITORY:$IMAGE_TAG 
+            docker push $REGISTRY/$REGISTRY_ALIAS/$REPOSITORY:latest

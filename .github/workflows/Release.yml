@@ -1,0 +1,23 @@
+name: New Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  Release:
+    runs-on: ubuntu-latest
+    permissions:
+        pull-requests: write
+        contents: write
+        issues: write
+        
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Creating Release
+      uses: chiemerieezechukwu/semantic-release@main
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
