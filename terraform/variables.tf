@@ -39,3 +39,11 @@ variable "ecs_service_name" {
   description = "Corresponds to the name of the ECS service which will be different for both environments"
 }
 
+variable "fqdn" {
+  description = "Fully qualified domain name"
+}
+
+variable "hosted_zone_id" {
+  
+}
+
