@@ -1,0 +1,5 @@
+default_region = "eu-central-1"
+secondary_region = "us-east-1"
+env = "dev"
+repo_name = "dev/irezd/fastapi"
+ecs_service_name = "dev-fastapi-service"

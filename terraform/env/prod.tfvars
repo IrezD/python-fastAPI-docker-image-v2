@@ -1,0 +1,5 @@
+default_region = "eu-central-1"
+secondary_region = "us-east-1"
+env = "prod"
+repo_name = "irezd/fastapi"
+ecs_service_name = "fastapi-service"
