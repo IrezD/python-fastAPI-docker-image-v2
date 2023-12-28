@@ -30,8 +30,8 @@ resource "aws_security_group" "ALB_to_containers" {
     from_port        = 5000
     to_port          = 5000
     protocol         = "tcp"
-    cidr_blocks      = [aws_security_group.internet_to_ALB]
-    ipv6_cidr_blocks = [aws_security_group.internet_to_ALB]
+    cidr_blocks      = [aws_security_group.internet_to_ALB.id]
+    ipv6_cidr_blocks = [aws_security_group.internet_to_ALB.id]
   }
 
   egress {

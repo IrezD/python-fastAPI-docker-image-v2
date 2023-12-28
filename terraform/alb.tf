@@ -2,7 +2,7 @@ resource "aws_lb" "alb" {
   name               = "fastapi-lb-${var.env}"
   internal           = false
   load_balancer_type = "application"
-  security_groups    = [aws_security_group.internet_to_ALB]
+  security_groups    = [aws_security_group.internet_to_ALB.id]
   subnets            = var.subnets_for_ecs
 }
 
