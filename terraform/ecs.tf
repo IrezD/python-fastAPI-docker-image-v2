@@ -45,7 +45,7 @@ resource "aws_ecs_service" "fastapi-service" {
   task_definition      = aws_ecs_task_definition.task_definition.arn
   desired_count        = 1
   launch_type          = "FARGATE"
- 
+  force_new_deployment = true
 
   network_configuration {
     subnets          = var.subnets_for_ecs
@@ -59,11 +59,8 @@ resource "aws_ecs_service" "fastapi-service" {
     container_port   = 5000
   }
 
-  force_new_deployment = true
+  
 
-  triggers = {
-    redeployment = timestamp()
-  }
 }
 
 
