@@ -1,5 +1,5 @@
 resource "aws_security_group" "internet_to_ALB" {
-  name        = "internet-to-alb"
+  name        = "internet-to-alb-${var.env}"
   description = "Inbound traffic from the internet into ALB for ${var.env} FastAPI environment"
 
   ingress {
@@ -22,7 +22,7 @@ resource "aws_security_group" "internet_to_ALB" {
 }
 
 resource "aws_security_group" "ALB_to_containers" {
-  name        = "alb-to-containers"
+  name        = "alb-to-containers-${var.env}"
   description = "Allowing traffic from ALB to containers for ${var.env} FastAPI environment"
 
   ingress {

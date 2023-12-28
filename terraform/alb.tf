@@ -18,7 +18,7 @@ resource "aws_lb_listener" "front_end" {
 }
 
 resource "aws_lb_target_group" "target_group_P-5000" {
-  name        = "alb-target-group"
+  name        = "alb-target-group-${var.env}"
   port        = 5000
   protocol    = "HTTP"
   target_type = "ip"
