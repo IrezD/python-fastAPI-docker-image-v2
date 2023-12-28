@@ -49,7 +49,7 @@ resource "aws_ecs_service" "fastapi-service" {
 
   network_configuration {
     subnets          = var.subnets_for_ecs
-    security_groups  = [aws_security_group.ALB_to_containers]
+    security_groups  = [aws_security_group.ALB_to_containers.id]
     assign_public_ip = true
   }
 
