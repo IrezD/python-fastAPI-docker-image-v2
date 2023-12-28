@@ -37,6 +37,7 @@ jobs:
           var_file: ./terraform/env/dev.tfvars
           variables: |
               vpc_id = "${{ secrets.VPC_ID }}"
+              hosted_zone_id = "${{ secrets.ZONE_ID }}"
               image_tag = "${{ github.sha }}"
 
       - name: Terraform apply
@@ -48,6 +49,7 @@ jobs:
           var_file: ./terraform/env/dev.tfvars
           variables: |
               vpc_id = "${{ secrets.VPC_ID }}"
+              hosted_zone_id = "${{ secrets.ZONE_ID }}"
               image_tag = "${{ github.sha }}"
           auto_approve: true
 
