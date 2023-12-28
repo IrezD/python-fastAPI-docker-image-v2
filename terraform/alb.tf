@@ -22,8 +22,9 @@ resource "aws_lb_listener" "listerner" {
 resource "aws_lb_target_group" "target_group" {
   name        = "alb-target-group-${var.env}"
   port        = 5000
-  protocol    = "HTTPS"
+  protocol    = "HTTP"
   target_type = "ip"
   vpc_id      = var.vpc_id
 }
+
  
