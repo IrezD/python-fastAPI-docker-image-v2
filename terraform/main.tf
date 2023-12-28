@@ -22,7 +22,7 @@ provider "aws" {
 }
 
 provider "aws" {
-  alias  = "ecr_region"
+  alias  = "secondary_region"
   region = var.secondary_region
 
   default_tags {

@@ -1,5 +1,5 @@
 resource "aws_ecrpublic_repository" "fastapi-ecr-public" {
-  provider = aws.ecr_region
+  provider = aws.secondary_region
 
   repository_name = var.repo_name
 
