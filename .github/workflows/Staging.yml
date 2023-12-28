@@ -37,6 +37,7 @@ jobs:
           var_file: ./terraform/env/dev.tfvars
           variables: |
               vpc_id = "${{ secrets.VPC_ID }}"
+              image_tag = "${{ github.sha }}"
 
       - name: Terraform apply
         uses: dflook/terraform-apply@v1
@@ -47,6 +48,7 @@ jobs:
           var_file: ./terraform/env/dev.tfvars
           variables: |
               vpc_id = "${{ secrets.VPC_ID }}"
+              image_tag = "${{ github.sha }}"
           auto_approve: true
 
   
