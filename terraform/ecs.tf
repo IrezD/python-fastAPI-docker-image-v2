@@ -15,8 +15,8 @@ resource "aws_ecs_task_definition" "task_definition" {
   family                   = "${var.env}-fastapi-container"
   requires_compatibilities = ["FARGATE"]
   network_mode             = "awsvpc"
-  cpu                      = 500
-  memory                   = 1024
+  cpu                      = 256
+  memory                   = 512
   container_definitions    = <<TASK_DEFINITION
 [
   {
