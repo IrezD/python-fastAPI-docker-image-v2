@@ -15,15 +15,15 @@ resource "aws_ecs_task_definition" "task_definition" {
   family                   = "${var.env}-fastapi-container"
   requires_compatibilities = ["FARGATE"]
   network_mode             = "awsvpc"
-  cpu                      = 1024
-  memory                   = 2048
+  cpu                      = 250
+  memory                   = 500
   container_definitions    = <<TASK_DEFINITION
 [
   {
     "name": "${var.env}_FastAPI_image",
     "image": "${aws_ecrpublic_repository.fastapi-ecr-public.repository_uri}:${var.image_tag}",
-    "cpu": 500,
-    "memory": 1024,
+    "cpu": 250,
+    "memory": 500,
     "essential": true,
     "portMappings": [
       {
