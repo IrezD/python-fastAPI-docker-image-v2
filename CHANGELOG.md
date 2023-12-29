@@ -1,3 +1,18 @@
+## [1.0.2](https://github.com/IrezD/python-fastAPI-docker-image-v2/compare/v1.0.1...v1.0.2) (2023-12-29)
+
+
+### Chores
+
+* modified main.py file for staging environment ([329fb82](https://github.com/IrezD/python-fastAPI-docker-image-v2/commit/329fb82381e4ab34397be97af074573d5947355b))
+
+### Fix
+
+* Reducing memory and cpu size ([1b9d64e](https://github.com/IrezD/python-fastAPI-docker-image-v2/commit/1b9d64e60e0ed5e743b1f8879056783bfd6b90c7))
+* Reducing memory and cpu size ([39b5a51](https://github.com/IrezD/python-fastAPI-docker-image-v2/commit/39b5a5103ddc44af30d344f0c8af689b4dbce634))
+* Reducing memory and cpu size ([cc735e4](https://github.com/IrezD/python-fastAPI-docker-image-v2/commit/cc735e4f0469847f4c0739a5ed476cca1d49b68d))
+* Reducing memory and cpu size ([30b54d4](https://github.com/IrezD/python-fastAPI-docker-image-v2/commit/30b54d486941eca3bfbfb64fb8946692a39a8ae8))
+* Reducing memory and cpu size ([ad04ca3](https://github.com/IrezD/python-fastAPI-docker-image-v2/commit/ad04ca3e1cae10874cb7d655115fde52bb4f851f))
+
 ## [1.0.1](https://github.com/IrezD/python-fastAPI-docker-image-v2/compare/v1.0.0...v1.0.1) (2023-12-28)
 
 
