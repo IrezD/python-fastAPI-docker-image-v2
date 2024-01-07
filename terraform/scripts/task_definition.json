@@ -1,4 +1,3 @@
-[
     {
       "name": "${var.env}_FastAPI_image",
       "image": "${aws_ecrpublic_repository.fastapi-ecr-public.repository_uri}:${var.image_tag}",
@@ -12,4 +11,3 @@
         }
       ]
     }
-  ]
