@@ -9,7 +9,8 @@ resource "aws_launch_template" "ASG_template" {
 }
 
 resource "aws_autoscaling_group" "ASG_config" {
-  name                      = "fastapi_ASG_dev"
+  name                      = "fastapi-ASG-${var.env}"
+  desired_capacity_type = "units"
   max_size                  = 3
   min_size                  = 1
   health_check_grace_period = 300
@@ -19,7 +20,6 @@ resource "aws_autoscaling_group" "ASG_config" {
   vpc_zone_identifier       = ["subnet-0dac9ab248dbb9596", "subnet-0a933dc6606abaeb0", "subnet-0ed459ed9dbe8e041"]
   launch_template {
     id = aws_launch_template.ASG_template.id
-    version = "$Latest"
   }
 
   tag {
