@@ -20,7 +20,6 @@ resource "aws_ecs_cluster" "fastapi-cluster" {
 resource "aws_ecs_task_definition" "task_definition" {
   family                   = "${var.env}-fastapi-container"
   requires_compatibilities = ["EC2"]
-  network_mode             = "default"
   container_definitions    = <<TASK_DEFINITION
 [
   {
