@@ -20,7 +20,24 @@ resource "aws_ecs_cluster" "fastapi-cluster" {
 resource "aws_ecs_task_definition" "task_definition" {
   family                   = "${var.env}-fastapi-container"
   requires_compatibilities = ["EC2"]
-  container_definitions    = "${file("scripts/task_definition.json")}"
+  container_definitions    = <<TASK_DEFINITION
+[
+  {
+    "name": "${var.env}_FastAPI_image",
+    "image": "${aws_ecrpublic_repository.fastapi-ecr-public.repository_uri}:${var.image_tag}",
+    "cpu": 256,
+    "memory": 512,
+    "essential": true,
+    "portMappings": [
+      {
+        "containerPort": 5000,
+        "hostPort": 5000
+      }
+    ]
+  }
+]
+TASK_DEFINITION
+
 }
 
 # ------ ECS Service -------- **
