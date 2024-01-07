@@ -53,12 +53,6 @@ resource "aws_ecs_service" "fastapi-service" {
   launch_type          = "EC2"
   force_new_deployment = true
 
-  network_configuration {
-    subnets          = var.subnets_for_ecs
-    security_groups  = [aws_security_group.ALB_to_containers.id]
-    assign_public_ip = true
-  }
-
   load_balancer {
     target_group_arn = aws_lb_target_group.target_group.arn
     container_name   = "${var.env}_FastAPI_image"
