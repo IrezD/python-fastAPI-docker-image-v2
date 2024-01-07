@@ -20,7 +20,7 @@ resource "aws_ecs_cluster" "fastapi-cluster" {
 resource "aws_ecs_task_definition" "task_definition" {
   family                   = "${var.env}-fastapi-container"
   requires_compatibilities = ["EC2"]
-  container_definitions    = file("scripts/task_definition.json")
+  container_definitions    = "${file("scripts/task_definition.json")}"
 }
 
 # ------ ECS Service -------- **
