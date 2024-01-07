@@ -6,8 +6,8 @@ resource "aws_ecs_capacity_provider" "customProvider" {
     managed_termination_protection = "DISABLED"
 
     managed_scaling {
-      status                    = "ENABLED"
-      target_capacity           = 100
+      status          = "ENABLED"
+      target_capacity = 100
     }
   }
 }
