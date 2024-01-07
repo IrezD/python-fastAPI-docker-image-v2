@@ -36,6 +36,13 @@ resource "aws_autoscaling_group" "ASG_config" {
     propagate_at_launch = true
   }
 
+  tag {
+    key                 = "Name"
+    value               = "${title(var.env)}_Enivronment"
+    propagate_at_launch = true
+  }
+
+
   timeouts {
     delete = "15m"
   }
