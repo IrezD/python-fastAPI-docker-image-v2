@@ -2,7 +2,7 @@ resource "aws_launch_template" "ASG_template" {
   name          = "LaunchTemplateECR"
   image_id      = var.ami_id
   instance_type = var.instance_type
-  security_group_names = [aws_security_group.ALB_to_containers.id]
+  vpc_security_group_ids = [aws_security_group.ALB_to_containers.id]
   iam_instance_profile {
     name = aws_iam_instance_profile.instance_profile.name
   }
@@ -17,7 +17,7 @@ resource "aws_autoscaling_group" "ASG_config" {
   health_check_type         = "ELB"
   desired_capacity          = 1
   force_delete              = true
-  availability_zones = ["eu-central-1a"]
+  vpc_zone_identifier  = [var.subnets_for_ecs]
   launch_template {
     id = aws_launch_template.ASG_template.id
   }
