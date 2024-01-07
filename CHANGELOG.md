@@ -1,3 +1,28 @@
+# [2.0.0](https://github.com/IrezD/python-fastAPI-docker-image-v2/compare/v1.0.2...v2.0.0) (2024-01-07)
+
+
+### Breaking
+
+* Bumping to v2.0.0 ([f672ef1](https://github.com/IrezD/python-fastAPI-docker-image-v2/commit/f672ef11e971c6ea0c12fde19e367634b5ccd4cd))
+* Bumping to v2.0.0 ([6158be5](https://github.com/IrezD/python-fastAPI-docker-image-v2/commit/6158be52e190e3a734bf58951567655054425a4e))
+* Bumping to v2.0.0 ([6e6477e](https://github.com/IrezD/python-fastAPI-docker-image-v2/commit/6e6477eda2cc360d1e7fec82b4bb5d2043dc9fad))
+* Bumping to v2.0.0 ([4148aaf](https://github.com/IrezD/python-fastAPI-docker-image-v2/commit/4148aafb339ca3c04fe34ee72226a71686d08aa5))
+* Bumping to v2.0.0 ([494c941](https://github.com/IrezD/python-fastAPI-docker-image-v2/commit/494c94170a1b3dead1a82596fc5a616428341a38))
+
+### Upgrade
+
+* Running containers on EC2 instead of Fargate ([6748ec5](https://github.com/IrezD/python-fastAPI-docker-image-v2/commit/6748ec562d7fb07bff8c003d37cfd9410bae9d96))
+* Running containers on EC2 instead of Fargate ([f7deb32](https://github.com/IrezD/python-fastAPI-docker-image-v2/commit/f7deb32cc3ae1c41522066e6eb6c2750b36d1197))
+* Running containers on EC2 instead of Fargate ([ebd32d5](https://github.com/IrezD/python-fastAPI-docker-image-v2/commit/ebd32d5b5795b06b80d376abaff7cd63c51bb4c9))
+* Running containers on EC2 instead of Fargate ([69f9f66](https://github.com/IrezD/python-fastAPI-docker-image-v2/commit/69f9f66ff5fc06be9b86dcad4c6a002f79464cb0))
+* Running containers on EC2 instead of Fargate ([fd7dc0f](https://github.com/IrezD/python-fastAPI-docker-image-v2/commit/fd7dc0f81a1f4ce26105a42ee34f42f2e8ca64bf))
+* Running containers on EC2 instead of Fargate ([80cb2fb](https://github.com/IrezD/python-fastAPI-docker-image-v2/commit/80cb2fbe78acdb17b0c106086f6a1cb1612aa2a2))
+* Running containers on EC2 instead of Fargate ([3bcc5ee](https://github.com/IrezD/python-fastAPI-docker-image-v2/commit/3bcc5ee105a205ac667ab75350a4277c2d8b3405))
+* Running containers on EC2 instead of Fargate ([63ce02f](https://github.com/IrezD/python-fastAPI-docker-image-v2/commit/63ce02fdb4d98e71e87164310846de439eece822))
+* Running containers on EC2 instead of Fargate ([052c41e](https://github.com/IrezD/python-fastAPI-docker-image-v2/commit/052c41e9a901dc0ddabf94a0f86574cfb6055100))
+* Running containers on EC2 instead of Fargate ([9a2b11e](https://github.com/IrezD/python-fastAPI-docker-image-v2/commit/9a2b11ea17548a6ea8b501ad07662faad47283c6))
+* Running containers on EC2 instead of Fargate ([0d9887f](https://github.com/IrezD/python-fastAPI-docker-image-v2/commit/0d9887f1d2172425f8255f14911153efcb8c1dc9))
+
 ## [1.0.2](https://github.com/IrezD/python-fastAPI-docker-image-v2/compare/v1.0.1...v1.0.2) (2023-12-29)
 
 
