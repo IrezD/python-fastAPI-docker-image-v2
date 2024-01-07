@@ -1,3 +1,16 @@
+## [2.0.1](https://github.com/IrezD/python-fastAPI-docker-image-v2/compare/v2.0.0...v2.0.1) (2024-01-07)
+
+
+### Chores
+
+* added ECS redeployment trigger ([e967179](https://github.com/IrezD/python-fastAPI-docker-image-v2/commit/e967179be0ebe734122ee9198267d1799c5a8415))
+* added ECS redeployment trigger ([48ce3aa](https://github.com/IrezD/python-fastAPI-docker-image-v2/commit/48ce3aa53362be34cf3aaa367b2f7102e3ee3009))
+
+### Fix
+
+* Removing revision  to always get image latest ([47c3a3b](https://github.com/IrezD/python-fastAPI-docker-image-v2/commit/47c3a3b1b68b09d6aad58940fbd421c6b1606ea3))
+* Removing revision  to always get image latest ([3da289b](https://github.com/IrezD/python-fastAPI-docker-image-v2/commit/3da289ba680970ce93c5e82e59f5d46f39f4c749))
+
 # [2.0.0](https://github.com/IrezD/python-fastAPI-docker-image-v2/compare/v1.0.2...v2.0.0) (2024-01-07)
 
 
