@@ -17,7 +17,7 @@ resource "aws_autoscaling_group" "ASG_config" {
   health_check_type         = "ELB"
   desired_capacity          = 1
   force_delete              = true
-#   availability_zones = ["eu-central-1a", "eu-central-1b", "eu-central-1c"]
+  availability_zones = ["eu-central-1a"]
   launch_template {
     id = aws_launch_template.ASG_template.id
   }
