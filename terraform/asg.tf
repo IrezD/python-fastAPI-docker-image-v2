@@ -9,7 +9,7 @@ resource "aws_launch_template" "ASG_template" {
 }
 
 resource "aws_autoscaling_group" "ASG_config" {
-  name                      = "fastapi_ASG_${var.env}"
+  name                      = "fastapi_ASG_dev"
   max_size                  = 3
   min_size                  = 1
   health_check_grace_period = 300
