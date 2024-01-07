@@ -51,10 +51,6 @@ resource "aws_ecs_service" "fastapi-service" {
 
   force_new_deployment = true
 
-  triggers = {
-    redeployment = timestamp()
-  }
-
   load_balancer {
     target_group_arn = aws_lb_target_group.target_group.arn
     container_name   = "${var.env}_FastAPI_image"
