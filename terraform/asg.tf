@@ -24,8 +24,10 @@ resource "aws_autoscaling_group" "ASG_config" {
   desired_capacity          = 1
   force_delete              = true
   vpc_zone_identifier  = var.subnets_for_ecs
+  
   launch_template {
     id = aws_launch_template.ASG_template.id
+    version = "$Latest"
   }
 
   tag {
