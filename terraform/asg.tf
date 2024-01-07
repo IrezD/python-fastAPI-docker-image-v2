@@ -2,7 +2,7 @@ resource "aws_launch_template" "ASG_template" {
   name_prefix         = "LaunchTemplateECR"
   image_id      = var.ami_id
   instance_type = var.instance_type
-  user_data = base64encode(file(".scripts/userdata.sh"))
+  user_data = base64encode(file("scripts/userdata.sh"))
   
   network_interfaces {
     associate_public_ip_address = true
