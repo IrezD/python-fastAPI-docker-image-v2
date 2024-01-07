@@ -45,9 +45,10 @@ TASK_DEFINITION
 resource "aws_ecs_service" "fastapi-service" {
   name                 = var.ecs_service_name
   cluster              = aws_ecs_cluster.fastapi-cluster.id
-  task_definition      = aws_ecs_task_definition.task_definition.arn
+  task_definition      = aws_ecs_task_definition.task_definition.arn_without_revision
   desired_count        = 1
   launch_type          = "EC2"
+
   force_new_deployment = true
 
   triggers = {
