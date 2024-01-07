@@ -16,7 +16,7 @@ resource "aws_autoscaling_group" "ASG_config" {
   health_check_type         = "ELB"
   desired_capacity          = 1
   force_delete              = true
-  vpc_zone_identifier       = [var.subnets_for_ecs]
+  vpc_zone_identifier       = ["subnet-0dac9ab248dbb9596", "subnet-0a933dc6606abaeb0", "subnet-0ed459ed9dbe8e041"]
   launch_template {
     id = aws_launch_template.ASG_template.id
     version = "$Latest"
