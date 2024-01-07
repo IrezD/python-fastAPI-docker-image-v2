@@ -1,12 +1,12 @@
 resource "aws_launch_template" "ASG_template" {
-  name          = "LaunchTemplateECR"
+  name_prefix         = "LaunchTemplateECR"
   image_id      = var.ami_id
   instance_type = var.instance_type
   
-#   network_interfaces {
-#     associate_public_ip_address = true
-#     security_groups = [aws_security_group.ALB_to_containers.id]
-#   }
+  network_interfaces {
+    associate_public_ip_address = true
+    security_groups = [aws_security_group.ALB_to_containers.id]
+  }
 
   iam_instance_profile {
     name = aws_iam_instance_profile.instance_profile.name
