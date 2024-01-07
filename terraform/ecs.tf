@@ -40,7 +40,7 @@ TASK_DEFINITION
 
 }
 
-# ------ ECS Service -------- **
+# ------ ECS Service --------- **
 
 resource "aws_ecs_service" "fastapi-service" {
   name                 = var.ecs_service_name
