@@ -1,4 +1,4 @@
-# ------ ECS Cluster ------- * 
+# ------ ECS Cluster ------- **
 
 resource "aws_ecs_cluster" "fastapi-cluster" {
   name = "fastapi-cluster"
@@ -7,13 +7,19 @@ resource "aws_ecs_cluster" "fastapi-cluster" {
     name  = "containerInsights"
     value = "enabled"
   }
+
+  configuration {
+    execute_command_configuration {
+      logging = "DEFAULT"
+    }
+  }
 }
 
-# ------ Task definition ------- * 
+# ------ Task definition ------- ** 
 
 resource "aws_ecs_task_definition" "task_definition" {
   family                   = "${var.env}-fastapi-container"
-  requires_compatibilities = ["FARGATE"]
+  requires_compatibilities = ["FARGATE", "EC2"]
   network_mode             = "awsvpc"
   cpu                      = 256
   memory                   = 512
@@ -37,14 +43,14 @@ TASK_DEFINITION
 
 }
 
-# ------ ECS Service -------- * 
+# ------ ECS Service -------- **
 
 resource "aws_ecs_service" "fastapi-service" {
   name                 = var.ecs_service_name
   cluster              = aws_ecs_cluster.fastapi-cluster.id
   task_definition      = aws_ecs_task_definition.task_definition.arn
   desired_count        = 1
-  launch_type          = "FARGATE"
+  launch_type          = "EC2"
   force_new_deployment = true
 
   network_configuration {
@@ -58,8 +64,6 @@ resource "aws_ecs_service" "fastapi-service" {
     container_name   = "${var.env}_FastAPI_image"
     container_port   = 5000
   }
-
-
 
 }
 
