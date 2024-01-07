@@ -1,0 +1,15 @@
+[
+    {
+      "name": "${var.env}_FastAPI_image",
+      "image": "${aws_ecrpublic_repository.fastapi-ecr-public.repository_uri}:${var.image_tag}",
+      "cpu": 256,
+      "memory": 512,
+      "essential": true,
+      "portMappings": [
+        {
+          "containerPort": 5000,
+          "hostPort": 5000
+        }
+      ]
+    }
+  ]
