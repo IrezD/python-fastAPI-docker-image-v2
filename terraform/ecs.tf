@@ -26,7 +26,7 @@ resource "aws_ecs_task_definition" "task_definition" {
     "name": "${var.env}_FastAPI_image",
     "image": "${aws_ecrpublic_repository.fastapi-ecr-public.repository_uri}:${var.image_tag}",
     "cpu": 256,
-    "memory": 512,
+    "memory": 256,
     "essential": true,
     "portMappings": [
       {

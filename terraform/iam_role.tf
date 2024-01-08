@@ -4,5 +4,5 @@ data "aws_iam_role" "ecs_role" {
 
 resource "aws_iam_instance_profile" "instance_profile" {
   role = data.aws_iam_role.ecs_role.id
-  name = "InstanceRoleForECS"
+  name = "InstanceRoleForECS_${var.env}"
 }
