@@ -57,3 +57,7 @@ variable "instance_type" {
   description = "Instance type for EC2"
   default = "t2.micro"
 }
+
+variable "capacity_provider_name" {
+  description = "Name of EC2 capacity provider for ECS container"
+}
