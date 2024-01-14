@@ -49,13 +49,13 @@ variable "hosted_zone_id" {
 
 variable "ami_id" {
   description = "Amazon Machine Image ID for Ec2 Instances"
-  default = "ami-0029cbd17e0d653cf"
-  sensitive = true
+  default     = "ami-0029cbd17e0d653cf"
+  sensitive   = true
 }
 
 variable "instance_type" {
   description = "Instance type for EC2"
-  default = "t2.micro"
+  default     = "t2.micro"
 }
 
 variable "capacity_provider_name" {

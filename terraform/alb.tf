@@ -20,13 +20,13 @@ resource "aws_lb_listener" "listerner" {
 }
 
 resource "aws_lb_target_group" "target_group" {
-  name        = "alb-target-group-${var.env}"
-  port        = 5000
-  protocol    = "HTTP"
-  vpc_id      = var.vpc_id
+  name     = "alb-target-group-${var.env}"
+  port     = 5000
+  protocol = "HTTP"
+  vpc_id   = var.vpc_id
 }
 
- resource "aws_autoscaling_attachment" "asg_lb_association" {
+resource "aws_autoscaling_attachment" "asg_lb_association" {
   autoscaling_group_name = aws_autoscaling_group.ASG_config.id
   lb_target_group_arn    = aws_lb_target_group.target_group.arn
 }
