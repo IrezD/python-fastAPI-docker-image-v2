@@ -1,12 +1,12 @@
 resource "aws_launch_template" "ASG_template" {
-  name_prefix         = "LaunchTemplateECR"
+  name_prefix   = "LaunchTemplateECR"
   image_id      = var.ami_id
   instance_type = var.instance_type
-  user_data = base64encode(file("scripts/userdata.sh"))
-  
+  user_data     = base64encode(file("scripts/userdata.sh"))
+
   network_interfaces {
     associate_public_ip_address = true
-    security_groups = [aws_security_group.ALB_to_containers.id]
+    security_groups             = [aws_security_group.ALB_to_containers.id]
   }
 
   iam_instance_profile {
@@ -16,17 +16,17 @@ resource "aws_launch_template" "ASG_template" {
 
 resource "aws_autoscaling_group" "ASG_config" {
   name                      = "fastapi-ASG-${var.env}"
-  desired_capacity_type = "units"
+  desired_capacity_type     = "units"
   max_size                  = 3
-  min_size                  = 1
+  min_size                  = 0
   health_check_grace_period = 300
   health_check_type         = "ELB"
-  desired_capacity          = 1
+  desired_capacity          = 0
   force_delete              = true
-  vpc_zone_identifier  = var.subnets_for_ecs
-  
+  vpc_zone_identifier       = var.subnets_for_ecs
+
   launch_template {
-    id = aws_launch_template.ASG_template.id
+    id      = aws_launch_template.ASG_template.id
     version = "$Latest"
   }
 
