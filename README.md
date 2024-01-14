@@ -1,2 +1,2 @@
-# python-fastAPI-docker-image-v2
-Containerizing a simple FastAPI
+# About this Project
+This Project involves creating a docker image out of Python FastAPI Web framework application (main.py) and utilizing AWS cloud services to run and store images. The infrastructure was built through Terraform for building and pushing the image to ECR's public repository where versions of the images are stored. The containers run on Elastic Container Service (ECS) using the EC2 launch type which is fronted by an Application load balancer with auto-scaling action for the EC2 container instances.
